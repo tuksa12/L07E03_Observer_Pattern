@@ -17,10 +17,10 @@ public final class TemperatureConverter {
     //TODO Task 2.2: Add Kelvin Converter Methods
 
     public static double convertKelvinToCelsius(double kelvin) {
-        return kelvin + 273.15;
+        return kelvin - 273.15;
     }
 
     public static double convertCelsiusToKelvin(double celcius) {
-        return celcius - 273.15;
+        return celcius + 273.15;
     }
 }
