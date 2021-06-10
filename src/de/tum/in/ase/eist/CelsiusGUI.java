@@ -13,7 +13,13 @@ public class CelsiusGUI extends TemperatureGUI {
 		addDisplayListener(new DisplayListener());
 	}
 
+
 	//TODO: 1.4.1: Implement onUpdate: Invoke the method setDisplay() with the new value converted to a String
+
+	@Override
+	public void onUpdate(Double newState) {
+		setDisplay(newState.toString());
+	}
 
 	class RaiseTempListener implements ActionListener {
 		@Override

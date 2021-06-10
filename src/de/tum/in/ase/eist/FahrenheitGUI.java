@@ -13,8 +13,15 @@ public class FahrenheitGUI extends TemperatureGUI {
 		addDisplayListener(new DisplayListener());
 	}
 
+
 	// TODO 1.4.2: implement the update method of Observer: invoke setDisplay(...) using the Fahrenheit value by
 	// converting the Celsius value using TemperatureConverter and the converting this Fahrenheit value to a string
+
+	@Override
+	public void onUpdate(Double newState) {
+		double temperatureInFahrenheit = TemperatureConverter.convertCelsiusToFahrenheit(newState);
+		setDisplay(Double.toString(temperatureInFahrenheit));
+	}
 
 	class RaiseTempListener implements ActionListener {
 		@Override

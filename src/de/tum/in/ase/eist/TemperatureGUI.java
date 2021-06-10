@@ -8,7 +8,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 // TODO Part 1.5: implement Observer<Double>
-public abstract class TemperatureGUI {
+public abstract class TemperatureGUI implements Observer<Double> {
 
 	private static final int BORDER_SIZE = 4;
 	private static final int WIDTH = 200;
@@ -29,6 +29,7 @@ public abstract class TemperatureGUI {
 		this.location = location;
 		createUI();
 		// TODO Part 1.6: add the object as observer to the subject
+		model.addObserver(this);
 	}
 
 	protected void createUI() {

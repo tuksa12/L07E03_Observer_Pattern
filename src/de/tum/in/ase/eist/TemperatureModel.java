@@ -2,7 +2,7 @@ package de.tum.in.ase.eist;
 
 
 //TODO Task 1.2: Make TemperatureModel observable by implementing Subject<Double>
-public class TemperatureModel {
+public class TemperatureModel extends Subject<Double> {
 
     private double celsiusTemperature;
 
@@ -13,6 +13,7 @@ public class TemperatureModel {
     public void setC(double tempC) {
         celsiusTemperature = tempC;
         //TODO Task 1.2: Notify all observers about the temperature change
+        notifyObservers(tempC);
     }
 
     public void increaseF(double amount) {

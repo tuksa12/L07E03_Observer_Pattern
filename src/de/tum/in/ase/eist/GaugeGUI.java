@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 // TODO Part 1.3: implement Observer<Double>
-public class GaugeGUI {
+public class GaugeGUI implements Observer<Double> {
 
 	private static final int WIDTH = 220;
 	private static final int HEIGHT = 300;
@@ -26,6 +26,7 @@ public class GaugeGUI {
 		this.location = location;
 		createUI();
 		// TODO Part 1.6: add the object as observer to the subject
+		model.addObserver(this);
 	}
 
 	protected void createUI() {
@@ -46,6 +47,12 @@ public class GaugeGUI {
 	//TODO Task 1.3: implement the onUpdate method of Observer: invoke setCurrentValue(..) with the Celsius value of the subject (converted to int)
 	// and then invoke repaint() on the gaugeCanvas
 
+	@Override
+	public void onUpdate(Double newState) {
+		setCurrentValue(newState.intValue());
+		gaugeCanvas.repaint();
+	}
+
 	public void setCurrentValue(int level) {
 		this.currentValue = level;
 	}
@@ -53,6 +60,7 @@ public class GaugeGUI {
 	public int getCurrentValue() {
 		return this.currentValue;
 	}
+
 
 	private class GaugeCanvas extends JPanel {
 
